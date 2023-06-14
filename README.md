@@ -32,8 +32,8 @@ npm install
 
 3. Create a configuration file:
 
-*Rename the `config.example.js` file in the `server` folder to `config.js`.
-*Open `config.js` and replace `<your_database_username>` and `<your_database_password>` with your MongoDB database username and password.
+* Rename the `config.example.js` file in the `server` folder to `config.js`.
+* Open `config.js` and replace `<your_database_username>` and `<your_database_password>` with your MongoDB database username and password.
 
 4. Install the dependencies for the client:
 
