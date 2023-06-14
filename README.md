@@ -1,7 +1,5 @@
 # Weather Getaway App
 
-Discover your dream vacation destination based on preferred temperature with WeatherGetaway!
-
 This web application allows users to search for cities based on temperature criteria. The application is built using the MERN (MongoDB, Express.js, React.js, Node.js) stack.
 
 ## Features
