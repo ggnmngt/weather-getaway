@@ -1,38 +1,38 @@
-import logo from './../logo.svg';
 import React, { useState } from 'react';
-import './App.css';
 import Form from './Form';
 import Result from './Result';
+import { SERVER_URL } from './config';
 
-function App() {
-  const [showResult, setShowResult] = useState(false);
+const App = () => {
   const [cities, setCities] = useState([]);
 
-  const handleSearch = (searchData) => {
-    // Perform search based on the input values
-    // You can add your logic here to fetch cities based on the date range and temperature range
-    console.log('Search Data:', searchData);
+  const handleSearch = async (searchData) => {
+    const { month, minTemp, maxTemp } = searchData;
 
-    // Dummy data - replace with your actual search results
-    const dummyCities = [
-      { name: 'City A' },
-      { name: 'City B' },
-      { name: 'City C' },
-    ];
+    // Calculate the average temperature
+    const temperature = (parseFloat(minTemp) + parseFloat(maxTemp)) / 2;
 
-    setCities(dummyCities);
-    setShowResult(true);
+    try {
+      const response = await fetch(`${SERVER_URL}/api/cities/search?month=${month}&temperature=${temperature}`);
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch cities');
+      }
+
+      const data = await response.json();
+      console.log(data);
+      setCities(data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Weather Getaway</h1>
-      </header>
       <Form onSearch={handleSearch} />
-      {showResult && <Result cities={cities} />}
+      <Result cities={cities} />
     </div>
   );
-}
+};
 
 export default App;

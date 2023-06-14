@@ -5,6 +5,9 @@
 /client/node_modules
 /server/node_modules
 
+#config
+/server/config.js
+
 # testing
 /coverage
 

@@ -15,7 +15,7 @@ const Form = ({ onSearch }) => {
     e.preventDefault();
     // Perform validation here
     if (!validateInputs()) {
-        return;
+      return;
     }
 
     // Prepare search data object
@@ -30,8 +30,8 @@ const Form = ({ onSearch }) => {
 
   const validateInputs = () => {
     // Perform validation logic here
-    // Check the values of travleMonth, minTemp, maxTemp and return false if any validation condition fails
-  
+    // Check the values of travelMonth, minTemp, maxTemp and return false if any validation condition fails
+
     return true; // Return true if all validation conditions pass
   };
 
